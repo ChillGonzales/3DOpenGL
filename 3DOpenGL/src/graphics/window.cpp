@@ -10,7 +10,6 @@ namespace sparky { namespace graphics {
 		m_Width = width;
 		if (!init())
 			glfwTerminate();
-
 	}
 
 	Window::~Window()
@@ -19,19 +18,13 @@ namespace sparky { namespace graphics {
 
 	bool Window::init()
 	{
-		glewExperimental = GL_TRUE;
-		if (!glewInit())
-		{
-			std::cout << "Failed to initialize GLEW." << std::endl;
-			return false;
-		}
 		if (!glfwInit())
 		{
 			std::cout << "Failed to initialize GLFW." << std::endl;
 			return false;
 		}
 		
-		m_Window = glfwCreateWindow(m_Width, m_Height, m_Title, NULL, NULL);
+		m_Window = glfwCreateWindow(m_Width, m_Height, m_Title, nullptr, nullptr);
 		if (!m_Window)
 		{
 			glfwTerminate();
@@ -39,6 +32,13 @@ namespace sparky { namespace graphics {
 			return false;
 		}
 		glfwMakeContextCurrent(m_Window);
+
+		glewExperimental = GL_TRUE;
+		if (!glewInit())
+		{
+			std::cout << "Failed to initialize GLEW." << std::endl;
+			return false;
+		}
 		return true;
 	}
 

@@ -3,6 +3,7 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\graphics\window.cpp" />
+    <ClCompile Include="src\shaders\vertex\Shaders.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\graphics\window.h" />
